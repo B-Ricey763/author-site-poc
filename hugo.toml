@@ -1,0 +1,29 @@
+# Site settings — the author only ever needs to touch this file
+# (and the Markdown files in content/). Everything here is a placeholder.
+baseURL = "https://example.org/"   # <-- replace with the real site address when it goes live
+locale = "en-us"
+title = "Your Name"                # <-- the author's name
+
+[params]
+  authorName = "Your Name"
+  authorTagline = "Fantasy, published one chapter at a time."
+  bookTitle = "The Ashen Gate"
+  bookSubtitle = "A sample serial novel — replace with your own"
+  releaseCadence = "New chapter every Tuesday and Friday"
+  newsletterNote = "Get new chapters by email. No spam, unsubscribe any time."
+  # When the author picks an email service (Buttondown, ConvertKit, ...),
+  # paste its signup-form address here and the home-page form will use it.
+  newsletterAction = ""
+
+[[menus.main]]
+  name = "Read the book"
+  url = "/chapters/"
+  weight = 1
+[[menus.main]]
+  name = "About"
+  url = "/about/"
+  weight = 2
+[[menus.main]]
+  name = "RSS"
+  url = "/index.xml"
+  weight = 3
