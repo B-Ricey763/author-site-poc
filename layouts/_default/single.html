@@ -1,0 +1,29 @@
+{{ define "main" }}
+{{ if eq .Section "chapters" }}
+<div class="toolbar"><button type="button" onclick="toggleTextSize()">A+ Text size</button></div>
+{{ end }}
+<article class="prose">
+  <h1>{{ .Title }}</h1>
+  {{ if eq .Section "chapters" }}<p class="muted small">{{ .Date.Format "January 2, 2006" }} · {{ .WordCount }} words</p>{{ end }}
+  {{ .Content }}
+</article>
+{{ if eq .Section "chapters" }}
+{{ $pages := sort (where .Site.RegularPages "Section" "chapters") "Weight" }}
+{{ $prev := false }}{{ $next := false }}
+{{ range $i, $p := $pages }}
+  {{ if eq $p.RelPermalink $.RelPermalink }}
+    {{ if gt $i 0 }}{{ $prev = index $pages (sub $i 1) }}{{ end }}
+    {{ if lt $i (sub (len $pages) 1) }}{{ $next = index $pages (add $i 1) }}{{ end }}
+  {{ end }}
+{{ end }}
+<nav class="reader-nav">
+  <span>{{ with $prev }}<a href="{{ .RelPermalink }}">← {{ .Title }}</a>{{ else }}<a href="{{ "/chapters/" | relURL }}">← Contents</a>{{ end }}</span>
+  <span>{{ with $next }}<a href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ else }}<span class="muted">That's the latest chapter. <a href="{{ "/#follow" | relURL }}">Get the next one by email →</a></span>{{ end }}</span>
+</nav>
+<div class="card" style="margin-top:2rem">
+  <strong>Enjoying it?</strong>
+  <p class="small" style="margin:.4rem 0 0">The book is free while it's being written.
+  <a href="{{ "/#follow" | relURL }}">Get the next chapter by email</a>, or share this chapter with one friend who'd like it — that's how serials grow.</p>
+</div>
+{{ end }}
+{{ end }}
