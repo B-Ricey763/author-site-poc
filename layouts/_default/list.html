@@ -1,0 +1,8 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+<ul class="chapter-list">
+{{ range sort .Pages "Weight" }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a><span class="muted small">{{ .Date.Format "Jan 2, 2006" }} · {{ .WordCount }} words</span></li>{{ end }}
+</ul>
+<p style="margin-top:2rem"><a class="btn" href="{{ "/#follow" | relURL }}">Get new chapters by email</a></p>
+{{ end }}
