@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="{{ .Site.Language.Locale | default "en" }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ .Site.Title }} — {{ .Site.Params.bookTitle }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ .Site.Params.authorTagline }}">
+  {{ with .OutputFormats.Get "RSS" }}<link rel="alternate" type="application/rss+xml" title="New chapters" href="{{ .Permalink }}">{{ end }}
+  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+</head>
+<body>
+{{ if eq .Section "chapters" }}{{ if .IsPage }}<div id="progress"></div>{{ end }}{{ end }}
+<header class="site"><div class="wrap">
+  <a class="brand" href="{{ "/" | relURL }}">{{ .Site.Params.authorName }}</a>
+  <nav>{{ range .Site.Menus.main }}<a href="{{ .URL }}">{{ .Name }}</a>{{ end }}</nav>
+</div></header>
+<main class="wrap">{{ block "main" . }}{{ end }}</main>
+<footer class="site"><div class="wrap">© {{ now.Year }} {{ .Site.Params.authorName }} · Published free, one chapter at a time.</div></footer>
+{{ if and (eq .Section "chapters") .IsPage }}
+<script>
+addEventListener("scroll",function(){var h=document.documentElement,p=h.scrollTop/((h.scrollHeight-h.clientHeight)||1);document.getElementById("progress").style.width=(p*100)+"%"},{passive:true});
+function toggleTextSize(){document.body.classList.toggle("large");}
+try{localStorage.setItem("lastChapter","{{ .RelPermalink }}");}catch(e){}
+</script>
+{{ end }}
+</body>
+</html>
