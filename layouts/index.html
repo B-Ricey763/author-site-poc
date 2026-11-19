@@ -1,0 +1,39 @@
+{{ define "main" }}
+{{ $chapters := where .Site.RegularPages "Section" "chapters" }}
+{{ $chapters = sort $chapters "Weight" }}
+<p class="muted small">{{ .Site.Params.releaseCadence }}</p>
+<h1>{{ .Site.Params.bookTitle }}</h1>
+<p class="muted">{{ .Site.Params.bookSubtitle }}</p>
+<div class="prose">{{ .Content }}</div>
+{{ with index $chapters 0 }}<p><a class="btn" href="{{ .RelPermalink }}">Start at Chapter 1</a>
+<a class="btn secondary" href="{{ "/chapters/" | relURL }}">All chapters</a></p>{{ end }}
+
+{{ with index $chapters (sub (len $chapters) 1) }}
+<h2>Latest chapter</h2>
+<div class="card">
+  <strong>{{ .Title }}</strong>
+  <p class="small muted" style="margin:.3rem 0">{{ .Date.Format "Jan 2, 2006" }} · {{ .WordCount }} words</p>
+  <a class="btn" href="{{ .RelPermalink }}">Read it now</a>
+</div>
+{{ end }}
+
+<h2>All chapters</h2>
+<ul class="chapter-list">
+{{ range $chapters }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a><span class="muted small">{{ .Date.Format "Jan 2, 2006" }} · {{ .WordCount }} words</span></li>{{ end }}
+</ul>
+
+<h2 id="follow">Follow along</h2>
+<div class="card">
+  <p style="margin-top:0">{{ .Site.Params.newsletterNote }}</p>
+  {{ if .Site.Params.newsletterAction }}
+  <form method="post" action="{{ .Site.Params.newsletterAction }}">
+    <label class="small muted" for="email">Email address</label>
+    <input id="email" name="email" type="email" required placeholder="you@example.com">
+    <p><button class="btn" type="submit">Subscribe free</button></p>
+  </form>
+  {{ else }}
+  <p class="small muted"><em>Email signup isn't connected yet — the author is still choosing a service. For now, follow new chapters with the <a href="{{ "/index.xml" | relURL }}">RSS feed</a>.</em></p>
+  {{ end }}
+  <p class="small muted">Prefer a reader app? Subscribe to the <a href="{{ "/index.xml" | relURL }}">RSS feed</a> instead.</p>
+</div>
+{{ end }}
