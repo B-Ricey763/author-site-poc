@@ -2,14 +2,14 @@
 # (and the Markdown files in content/). Everything here is a placeholder.
 baseURL = "https://example.org/"   # <-- replace with the real site address when it goes live
 locale = "en-us"
-title = "Michael"                # <-- the author's name
+title = "Tales from Fountain"                # <-- the author's name
 
 [params]
   authorName = "Michael"
   authorTagline = "Fantasy, published one chapter at a time."
   bookTitle = "The Abyss"
-  bookSubtitle = "A sample serial novel — replace with your own"
-  releaseCadence = "New chapter every Tuesday and Friday"
+  bookSubtitle = "by Michael Saenz"
+  releaseCadence = "New chapters every Sunday"
   newsletterNote = "Get new chapters by email. No spam, unsubscribe any time."
   # When the author picks an email service (Buttondown, ConvertKit, ...),
   # paste its signup-form address here and the home-page form will use it.
