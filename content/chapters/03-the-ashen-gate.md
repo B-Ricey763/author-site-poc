@@ -3,7 +3,7 @@ title: "Chapter 3 — The Ashen Gate"
 chapter: 3
 date: 2026-11-10
 weight: 3
-draft: false
+draft: true
 ---
 
 *Sample text. Replace this chapter with your own.*

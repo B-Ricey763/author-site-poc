@@ -3,7 +3,7 @@ title: "Chapter 1 — The Map Room"
 chapter: 1
 date: 2026-11-03
 weight: 1
-draft: false
+draft: true
 ---
 
 *Sample text. Replace this chapter with your own.*

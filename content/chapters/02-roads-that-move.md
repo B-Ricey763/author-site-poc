@@ -3,7 +3,7 @@ title: "Chapter 2 — Roads That Move"
 chapter: 2
 date: 2026-11-06
 weight: 2
-draft: false
+draft: true
 ---
 
 *Sample text. Replace this chapter with your own.*

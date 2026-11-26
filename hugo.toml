@@ -2,12 +2,12 @@
 # (and the Markdown files in content/). Everything here is a placeholder.
 baseURL = "https://example.org/"   # <-- replace with the real site address when it goes live
 locale = "en-us"
-title = "Your Name"                # <-- the author's name
+title = "Michael"                # <-- the author's name
 
 [params]
-  authorName = "Your Name"
+  authorName = "Michael"
   authorTagline = "Fantasy, published one chapter at a time."
-  bookTitle = "The Ashen Gate"
+  bookTitle = "The Abyss"
   bookSubtitle = "A sample serial novel — replace with your own"
   releaseCadence = "New chapter every Tuesday and Friday"
   newsletterNote = "Get new chapters by email. No spam, unsubscribe any time."
