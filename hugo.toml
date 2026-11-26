@@ -5,7 +5,7 @@ locale = "en-us"
 title = "Tales from Fountain"                # <-- the author's name
 
 [params]
-  authorName = "Michael"
+  authorName = "Tales from Fountain"
   authorTagline = "Fantasy, published one chapter at a time."
   bookTitle = "The Abyss"
   bookSubtitle = "by Michael Saenz"
